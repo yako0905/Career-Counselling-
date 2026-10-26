@@ -1,0 +1,290 @@
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 40px 48px 48px;
+}
+
+.results-intro h1 {
+  margin: 0 0 8px;
+  font-size: 40px;
+  font-weight: 800;
+}
+
+.results-intro p {
+  margin: 0;
+  font-size: 18px;
+  color: var(--text-muted);
+}
+
+.strengths-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.04);
+}
+
+.strengths-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.strengths-title img {
+  width: 24px;
+  height: 24px;
+}
+
+.strengths-title h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.strengths-body {
+  display: flex;
+  gap: 32px;
+}
+
+.strengths-body > p {
+  flex: 1;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.strengths-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.strength-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 15px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.level {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.level-strong {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.level-moderate {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.explore {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.explore h2 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.career-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.career-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.04);
+}
+
+.career-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.career-id {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.career-badge {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: var(--primary-tint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.career-badge img {
+  width: 28px;
+  height: 28px;
+}
+
+.career-id h3 {
+  margin: 0 0 4px;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.path-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--primary);
+}
+
+.match-ring {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+}
+
+.match-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.match-label strong {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.match-label span {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.career-text {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.skills-block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.skills-label {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tag {
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: var(--primary-tint);
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.career-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.explore-btn {
+  flex: 1;
+  justify-content: center;
+  padding: 12px 0;
+  font-size: 15px;
+}
+
+.save-btn {
+  width: 100px;
+  padding: 12px 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+}
+
+.decide-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 32px;
+  background: var(--primary-tint);
+  border-radius: 24px;
+  text-align: center;
+}
+
+.decide-card h2 {
+  margin: 0 0 8px;
+  font-size: 26px;
+  font-weight: 800;
+}
+
+.decide-card p {
+  margin: 0;
+  max-width: 720px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.decide-buttons {
+  display: flex;
+  gap: 16px;
+}
+
+.decide-btn {
+  padding: 14px 24px;
+  font-size: 16px;
+}
+
+.decide-outline {
+  background: var(--surface);
+  border: 1px solid var(--primary);
+  color: var(--primary);
+}

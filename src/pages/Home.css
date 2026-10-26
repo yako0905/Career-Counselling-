@@ -1,0 +1,305 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.btn img {
+  width: 16px;
+  height: 16px;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: #ffffff;
+}
+
+.btn-outline {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.btn-lg {
+  padding: 14px 20px;
+  font-size: 16px;
+}
+
+.btn-md {
+  padding: 12px 20px;
+  font-size: 15px;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 32px 48px;
+  min-height: 220px;
+}
+
+.hero-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.hero-content h1 {
+  margin: 0;
+  font-size: 40px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.hero-content p {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.hero-image {
+  width: 360px;
+  height: 180px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.how-it-works {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px 48px;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.popular {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px 48px;
+}
+
+.section-head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-head h2 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.section-head p {
+  margin: 0;
+  font-size: 16px;
+  color: var(--text-muted);
+}
+
+.card-row {
+  display: flex;
+  gap: 16px;
+}
+
+.card {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.04);
+}
+
+.card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.card-text h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.card-text p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background: var(--primary-tint);
+  color: var(--primary);
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.career-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  background: var(--primary-tint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.career-icon img {
+  width: 28px;
+  height: 28px;
+}
+
+.chatbot {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 20px 48px;
+  background: var(--primary-tint);
+  border-radius: 24px 24px 0 0;
+}
+
+.chatbot-icon {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  border-radius: 28px;
+  background: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chatbot-icon img {
+  width: 28px;
+  height: 28px;
+}
+
+.chatbot-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.chatbot-text h3 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.chatbot-text p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.counsellor {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 48px;
+  background: var(--surface);
+}
+
+.counsellor-card {
+  width: 360px;
+  min-height: 220px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 20px;
+  background: var(--primary-tint);
+  border-radius: 20px;
+}
+
+.pill {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--primary);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.counsellor-card h3 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.counsellor-card p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.avatars {
+  display: flex;
+  gap: 8px;
+}
+
+.avatars span {
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+  background: var(--surface);
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.counsellor-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.counsellor-text h2 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.counsellor-text p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}

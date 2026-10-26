@@ -1,0 +1,265 @@
+.details-hero {
+  display: flex;
+  align-items: center;
+  gap: 48px;
+  padding: 56px 48px;
+  background: var(--surface);
+}
+
+.details-hero-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.match-pill {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--primary-tint);
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.title-group h1 {
+  margin: 0;
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.title-group p {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.details-actions {
+  display: flex;
+  gap: 16px;
+}
+
+.details-btn {
+  padding: 14px 24px;
+  font-size: 16px;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+button.details-btn.btn-outline {
+  border: 1px solid var(--border);
+}
+
+.details-hero-image {
+  width: 480px;
+  height: 280px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.04);
+}
+
+.overview {
+  display: flex;
+  gap: 48px;
+  padding: 48px;
+}
+
+.overview h2 {
+  width: 400px;
+  flex-shrink: 0;
+  margin: 0;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.overview p {
+  flex: 1;
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.snapshot {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px 48px 48px;
+}
+
+.snapshot h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.snapshot-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.snapshot-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.02);
+}
+
+.snapshot-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--primary-tint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.snapshot-icon img {
+  width: 24px;
+  height: 24px;
+}
+
+.snapshot-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.snapshot-label {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--footer-text);
+}
+
+.snapshot-text strong {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.skills-needed,
+.how-to-enter {
+  display: flex;
+  flex-direction: column;
+  padding: 48px;
+}
+
+.skills-needed {
+  gap: 24px;
+  background: var(--surface);
+}
+
+.how-to-enter {
+  gap: 32px;
+}
+
+.block-head h2 {
+  margin: 0 0 8px;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.block-head p {
+  margin: 0;
+  font-size: 16px;
+  color: var(--text-muted);
+}
+
+.skills-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.skill-chip {
+  padding: 12px 20px;
+  border-radius: 12px;
+  background: var(--primary-tint);
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.steps-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.step-node {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.02);
+}
+
+.step-num {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background: var(--primary-tint);
+  color: var(--primary);
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-text h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.step-text p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.bottom-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 48px;
+  background: var(--primary-tint);
+  border-radius: 24px 24px 0 0;
+  text-align: center;
+}
+
+.cta-text h2 {
+  margin: 0 0 8px;
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.cta-text p {
+  margin: 0;
+  font-size: 16px;
+  color: var(--text-muted);
+}
