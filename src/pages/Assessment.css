@@ -225,3 +225,8 @@
 button.btn-primary {
   border: none;
 }
+
+.btn-action:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

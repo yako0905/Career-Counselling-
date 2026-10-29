@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useProgress } from '../useProgress'
 import { Link } from 'react-router-dom'
 import clockIcon from '../assets/clock.svg'
 import arrowIcon from '../assets/arrow-right.svg'
@@ -21,12 +21,11 @@ const resources = [
 ]
 
 export default function Roadmap() {
-  const [done, setDone] = useState(0) // number of completed stages (done in order)
+  const { completed: done, percent, completeNext } = useProgress()
   const total = stages.length
-  const percent = Math.round((done / total) * 100)
 
   function markComplete(i) {
-    if (i === done) setDone(done + 1)
+    if (i === done) completeNext()
   }
 
   function summary() {

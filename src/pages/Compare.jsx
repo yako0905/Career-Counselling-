@@ -4,12 +4,13 @@ import codeIcon from '../assets/code.svg'
 import barChartIcon from '../assets/bar-chart.svg'
 import layoutIcon from '../assets/layout.svg'
 import arrowIcon from '../assets/arrow-right.svg'
+import { getRanking } from '../topCareer'
 import './Compare.css'
 
 const careers = [
-  { title: 'Software Developer', track: 'Engineering Track', icon: codeIcon, match: 87 },
-  { title: 'Data Analyst', track: 'Data & Insights', icon: barChartIcon, match: 82 },
-  { title: 'UI/UX Designer', track: 'Product Design', icon: layoutIcon, match: 74 },
+  { key: 'dev', title: 'Software Developer', track: 'Engineering Track', icon: codeIcon },
+  { key: 'data', title: 'Data Analyst', track: 'Data & Insights', icon: barChartIcon },
+  { key: 'ux', title: 'UI/UX Designer', track: 'Product Design', icon: layoutIcon },
 ]
 
 const rows = [
@@ -57,6 +58,8 @@ function renderValue(row, value) {
 }
 
 export default function Compare() {
+    const ranking = getRanking()
+  const matchFor = (key) => ranking.find((r) => r.key === key).match
   return (
     <div className="compare">
       <section className="compare-head">
@@ -88,7 +91,7 @@ export default function Compare() {
             </div>
             {careers.map((c) => (
               <div className="cmp-cell cmp-center" key={c.title}>
-                <MatchRing value={c.match} />
+                               <MatchRing value={matchFor(c.key)} />
               </div>
             ))}
           </div>

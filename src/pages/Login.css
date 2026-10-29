@@ -1,0 +1,132 @@
+.auth-page {
+  display: flex;
+  justify-content: center;
+  padding: 64px 24px 80px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 36px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: 0 16px 36px rgba(49, 46, 129, 0.08);
+}
+
+.auth-logo {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.auth-logo img {
+  width: 28px;
+  height: 28px;
+}
+
+.auth-card h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.auth-sub {
+  margin: 0 0 24px;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.auth-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.auth-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.auth-field > span {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.auth-field input {
+  padding: 13px 14px;
+  background: var(--bg);
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--text);
+  outline: none;
+}
+
+.auth-field input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-tint);
+}
+
+.auth-field input.has-error {
+  border-color: #dc2626;
+}
+
+.auth-field em {
+  font-size: 12px;
+  font-style: normal;
+  color: #dc2626;
+}
+
+.auth-error {
+  padding: 12px 14px;
+  background: #fee2e2;
+  border-radius: 10px;
+  font-size: 13px;
+  color: #991b1b;
+}
+
+.auth-submit {
+  width: 100%;
+  border: none;
+  cursor: pointer;
+}
+
+.auth-switch {
+  margin: 20px 0 0;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.auth-switch button {
+  padding: 0;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.auth-note {
+  margin: 18px 0 0;
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--footer-text);
+}

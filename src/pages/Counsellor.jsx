@@ -1,3 +1,4 @@
+import { useProgress } from '../useProgress'
 import { useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import sparklesIcon from '../assets/sparkles.svg'
@@ -14,6 +15,8 @@ import sendIcon from '../assets/send.svg'
 import searchIcon from '../assets/search.svg'
 import chevronIcon from '../assets/chevron-right.svg'
 import refreshIcon from '../assets/refresh.svg'
+import { getTopCareer, getRanking } from '../topCareer'
+import { useAuth } from '../useAuth'
 import './Counsellor.css'
 
 const suggestions = [
@@ -30,27 +33,33 @@ const quickActions = [
 ]
 
 // Sample replies. A real AI would need a backend/API; see the note in the chat.
-function getReply(question) {
+// Sample replies. A real AI would need a backend/API; see the note in the chat.
+function getReply(question, stageLabel, ranking, firstName) {
   const q = question.toLowerCase()
+  const [first, second, third] = ranking
   if (q.includes('career') || q.includes('right for me') || q.includes('job')) {
-    return "Based on your assessment, Software Developer is your strongest match at 87%, followed by Data Analyst (82%) and UI/UX Designer (74%). Your strengths in problem solving and technology point toward software roles. You can compare them side by side on the Compare page."
+    return `Based on your assessment, ${first.title} is your strongest match at ${first.match}%, followed by ${second.title} (${second.match}%) and ${third.title} (${third.match}%). You can compare them side by side on the Compare page.`
   }
   if (q.includes('skill') || q.includes('learn')) {
-    return "For a Software Developer path, focus on C++ or Python first, then Data Structures & Algorithms, Git & GitHub, and basic Web Development. Your Python (45%) and DSA (30%) have the most room to grow right now."
+    return `For a ${first.title} path, focus on ${first.learn}.`
   }
   if (q.includes('roadmap') || q.includes('improve') || q.includes('plan')) {
-    return "You're currently on Stage 1 of 5: Learn Programming (about 4-6 weeks). Finish Python basics, then move to Stage 2: Master DSA. Completing one stage at a time will lift your readiness score toward the 50% milestone."
+    return `You're currently at: ${stageLabel}. Finish the current stage, then move on to the next one. Completing one stage at a time will lift your readiness score.`
   }
   if (q.includes('interview') || q.includes('prepare')) {
     return "Start with 2-3 coding problems a week on topics you've learned, practise explaining your thinking out loud, and prepare short stories about your projects. System design basics come after you've built a few projects."
   }
-  if (q.includes('hello') || q.includes('hi')) {
-    return "Hello Arjun! Ask me about careers, skills, your roadmap, or interviews."
+  if (/\b(hello|hi|hey)\b/.test(q)) {
+   return `Hello ${firstName}! Ask me about careers, skills, your roadmap, or interviews.`
   }
   return "That's a great question. I can help with choosing a career, which skills to learn, improving your roadmap, and interview preparation. Try one of the suggested questions, or tell me more about what you enjoy."
 }
 
 export default function Counsellor() {
+  const { percent, stageLabel } = useProgress()
+  const { user, firstName, initials } = useAuth()
+  const top = getTopCareer()
+  const ranking = getRanking()
   const [messages, setMessages] = useState([])
   const [input, setInput] = useState('')
   const [typing, setTyping] = useState(false)
@@ -67,7 +76,7 @@ export default function Counsellor() {
     setInput('')
     setTyping(true)
     setTimeout(() => {
-      setMessages((m) => [...m, { role: 'bot', text: getReply(trimmed) }])
+     setMessages((m) => [...m, { role: 'bot', text: getReply(trimmed, stageLabel, ranking, firstName) }])
       setTyping(false)
     }, 700)
   }
@@ -193,31 +202,31 @@ export default function Counsellor() {
         <aside className="cp-side">
           <section className="profile-box">
             <div className="pb-head">
-              <div className="pb-avatar">AK</div>
+              <div className="pb-avatar">{initials}</div>
               <div className="pb-id">
-                <strong>Arjun Kumar</strong>
-                <span>3rd Year · B.Tech CSE</span>
+                <strong>{user.name}</strong>
+                <span>{user.course || 'Course not added'}</span>
               </div>
               <span className="uptodate">Up to date</span>
             </div>
             <div className="pb-rows">
               <div className="pb-row">
                 <span>Career Goal</span>
-                <em>Software Developer</em>
+                <em>{top.title}</em>
               </div>
               <div className="pb-row">
                 <span>Career Match</span>
-                <b>87% Match</b>
+                <b>{top.match}% Match</b>
               </div>
               <div className="pb-progress">
                 <div className="pb-progress-top">
                   <span>Roadmap Progress</span>
-                  <b>20%</b>
+                  <b>{percent}%</b>
                 </div>
                 <div className="pb-track">
-                  <div className="pb-fill" style={{ width: '20%' }} />
+                 <div className="pb-fill" style={{ width: `${percent}%` }} />
                 </div>
-                <small>Stage 1 of 5 · Learn Programming</small>
+                <small>{stageLabel}</small>
               </div>
               <div className="pb-skills">
                 <span>Top Skills</span>

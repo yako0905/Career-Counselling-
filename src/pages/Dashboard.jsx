@@ -6,6 +6,10 @@ import barChartIcon from '../assets/bar-chart.svg'
 import codeIcon from '../assets/code.svg'
 import helpIcon from '../assets/help-circle.svg'
 import userPenIcon from '../assets/user-pen.svg'
+import { useProgress } from '../useProgress'
+import { STAGES } from '../progressContext'
+import { getTopCareer } from '../topCareer'
+import { useAuth } from '../useAuth'
 import './Dashboard.css'
 
 const skills = [
@@ -55,30 +59,36 @@ function ReadinessRing({ value }) {
 }
 
 export default function Dashboard() {
+  const { user, firstName, initials } = useAuth()
+  const { completed, total, percent } = useProgress()
+  // Readiness: 30% baseline from your assessment + up to 60% from roadmap progress
+  const readiness = Math.round(30 + percent * 0.6)
+    const top = getTopCareer()
+
   return (
     <div className="dashboard">
       <div className="dash-welcome">
-        <h1>Welcome back, Arjun! 👋</h1>
+        <h1>Welcome back, {firstName}! 👋</h1>
         <p>Here's your career progress at a glance.</p>
       </div>
 
       <div className="dash-row">
         <section className="dash-card profile-card">
           <div className="profile-head">
-            <div className="avatar">AK</div>
+           <div className="avatar">{initials}</div>
             <div>
-              <h2>Arjun Kumar</h2>
-              <span>Delhi Technological University</span>
+              <h2>{user.name}</h2>
+             <span>{user.college || 'College not added'}</span>
             </div>
           </div>
           <div className="profile-details">
             <div className="detail-row">
               <span>Academic Year</span>
-              <strong>3rd Year, B.Tech CSE</strong>
+             <strong>{user.course || 'Not added'}</strong>
             </div>
             <div className="detail-row detail-goal">
               <span>Career Goal</span>
-              <em>Software Developer</em>
+             <em>{top.title}</em>
             </div>
           </div>
           <button type="button" className="edit-link">Edit Profile</button>
@@ -86,18 +96,22 @@ export default function Dashboard() {
 
         <section className="dash-card readiness-card">
           <h3>Career Readiness Score</h3>
-          <ReadinessRing value={42} />
-          <p>Keep learning to improve your score! Next goal is 50% milestone.</p>
+          <ReadinessRing value={readiness} />
+          <p>
+            {readiness >= 50
+              ? "Great work! You've passed the 50% milestone. Keep going!"
+              : 'Keep learning to improve your score! Next goal is 50% milestone.'}
+          </p>
         </section>
 
         <section className="dash-card match-card">
           <div className="match-head">
             <span className="match-title">Top Career Match</span>
-            <span className="match-badge">87% Match</span>
+           <span className="match-badge">{top.match}% Match</span>
           </div>
           <div className="match-body">
-            <h2>Software Developer</h2>
-            <p>Design, build, and test software programs. Leverage your tech &amp; logical problem-solving strengths.</p>
+            <h2>{top.title}</h2>
+           <p>{top.blurb}</p>
           </div>
           <Link to="/career-details" className="btn btn-primary small-btn">View Career →</Link>
         </section>
@@ -107,23 +121,34 @@ export default function Dashboard() {
         <section className="dash-card roadmap-card">
           <div className="card-head">
             <h3>Roadmap Progress</h3>
-            <span className="road-pill">20% Complete</span>
+            <span className="road-pill">{percent}% Complete</span>
           </div>
           <div className="bar-block">
             <div className="bar-track">
-              <div className="bar-fill bar-10" style={{ width: '20%' }} />
+              <div className="bar-fill bar-10" style={{ width: `${percent}%` }} />
             </div>
-            <span className="bar-note">1 of 5 stages completed</span>
+            <span className="bar-note">{completed} of {total} stages completed</span>
           </div>
           <div className="stage-list">
-            <div className="stage-line-item stage-now">
-              <span className="dot dot-now" />
-              Current: Stage 1: Learn Programming
-            </div>
-            <div className="stage-line-item">
-              <span className="dot" />
-              Next: Stage 2: Master DSA
-            </div>
+            {completed < total ? (
+              <>
+                <div className="stage-line-item stage-now">
+                  <span className="dot dot-now" />
+                  Current: Stage {completed + 1}: {STAGES[completed]}
+                </div>
+                {completed + 1 < total && (
+                  <div className="stage-line-item">
+                    <span className="dot" />
+                    Next: Stage {completed + 2}: {STAGES[completed + 1]}
+                  </div>
+                )}
+              </>
+            ) : (
+              <div className="stage-line-item stage-now">
+                <span className="dot dot-now" />
+                All stages complete. Well done!
+              </div>
+            )}
           </div>
           <Link to="/roadmap" className="continue-btn">Continue Roadmap →</Link>
         </section>

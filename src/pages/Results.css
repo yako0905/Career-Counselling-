@@ -288,3 +288,8 @@
   border: 1px solid var(--primary);
   color: var(--primary);
 }
+
+.level-developing {
+  background: #e2e8f0;
+  color: #475569;
+}

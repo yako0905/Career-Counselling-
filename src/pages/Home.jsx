@@ -91,7 +91,7 @@ export default function Home() {
           <h3>Have a career question?</h3>
           <p>Ask our Career Assistant anything about careers, courses, skills, or career paths.</p>
         </div>
-        <Link to="/counsellor" className="btn btn-primary btn-md">
+        <Link to="/book" className="btn btn-primary btn-md">
           Chat with Career Assistant
           <img src={arrowIcon} alt="" />
         </Link>
@@ -114,7 +114,7 @@ export default function Home() {
         <div className="counsellor-text">
           <h2>Still unsure?</h2>
           <p>Talk to a professional counsellor who can help you make the right choice.</p>
-          <Link to="/counsellor" className="btn btn-primary btn-lg">
+          <Link to="/book" className="btn btn-primary btn-lg">
             Book a Session
           </Link>
         </div>
